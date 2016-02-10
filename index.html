@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Bootstrap CDN -->
+		<link 
+			rel="stylesheet" 
+			href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" 
+			crossorigin="anonymous">
+
+		<!-- JavaScript file -->
+		<title>Grocery list</title>
+	</head>
+	<body>
+		<div class="container">
+			<!-- grocery list table -->
+			<table class="table table-striped">
+				<h3>My grocery list</h3>
+				<tbody id="receipt">
+					<tr>
+						<th>Item</th>
+						<th>Quantity</th>
+						<th>Price (per unit)</th>
+					</tr>
+				</tbody>
+				<tfoot>
+					<tr id="totals">
+						<th>Total</th>
+					</tr>
+				</tfoot>
+			</table>
+			<!-- form for entering new grocery items -->
+			<h3>Add groceries</h3>
+			<form class="form-inline">
+			  <div class="form-group">
+			    <label>New item:</label>
+			    <input type="text" class="form-control" id="textItem" placeholder="Name of item">
+			  </div>
+			  <div class="form-group">
+			    <label>Quantity:</label>
+			    <input type="text" class="form-control" id="textQuantity" placeholder="Quantity of items">
+			  </div>
+			  <div class="form-group">
+			    <label>Item price:</label>
+			    <input type="text" class="form-control" id="textPrice" placeholder="Price of item">
+			  </div>
+			  <button type="submit" id="submit" class="btn btn-default" onclick="addItem();">Submit</button>
+			</form>
+		</div>
+		<script src="labEight.js"></script>
+	</body>
+</html>
