@@ -40,30 +40,31 @@ groceryList.forEach(function(el) {
 for (var i = 0; i < groceryList.length; i++) {
 	// create table row
 	var listRow = document.createElement("tr"); 
-	// create table data for item, quantity, price, totals
-	var colItem = document.createElement("td");
-	var colQuantity = document.createElement("td");
-	var colPrice = document.createElement("td");
+	//create object that contains item, quantity, price
+	var product = {};
+	product.item = document.createElement("td");
+	product.quantity = document.createElement("td");
+	product.price = document.createElement("td");
+	// create variables for quantity, price totals
 	var colTotalQuantity = document.createElement("td");
 	var colTotalPrice = document.createElement("td");
 	// define what will go in newly created elements
-	colItem.innerText = groceryList[i].item;
-	colQuantity.innerText = groceryList[i].quantity;
-	colPrice.innerText = "$" + groceryList[i].price;
+	product.item.innerText = groceryList[i].item;
+	product.quantity.innerText = groceryList[i].quantity;
+	product.price.innerText = "$" + groceryList[i].price;
 	colTotalQuantity.innerText = totalQuantity;
 	colTotalPrice.innerText = "$" + totalPrice.toFixed(2);
 	// append item, quantity, price to table body
-	listRow.appendChild(colItem);
-	listRow.appendChild(colQuantity);
-	listRow.appendChild(colPrice);
+	listRow.appendChild(product.item);
+	listRow.appendChild(product.quantity);
+	listRow.appendChild(product.price);
 	var receipt = document.getElementById("receipt");
 	receipt.appendChild(listRow);
 }
 
-// append totals to table footer
+// append quantity, price totals to table footer
 var footer = document.getElementById("totals");
 footer.appendChild(colTotalQuantity);
-var footer = document.getElementById("totals");
 footer.appendChild(colTotalPrice);
 
 function addItem() {
@@ -88,15 +89,7 @@ function addItem() {
 	receipt.appendChild(newListRow);
 }
 
+// prevents page from refreshing upon clicking submit button
 document.getElementById("submit").addEventListener("click", function(event){
     event.preventDefault()
 });
-
-/*
-BONUS!
-Add a form with text inputs for Name and Price and a button that 
-allows you to add elements to the shopping list.
-Clicking 'Add' updates the list on the page. 
-Clicking 'Add' also updates the total.
-Be prepared to demo your work.
-*/
